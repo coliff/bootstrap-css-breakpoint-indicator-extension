@@ -92,6 +92,12 @@ legend {
   padding: 0;
 }
 
+hr {
+  border: 0;
+  border-top: 1px solid var(--bs-border-color);
+  margin: 0.75rem 0 0;
+}
+
 main > .form-field {
   margin-top: 0.75rem;
 }
@@ -199,6 +205,11 @@ fieldset .form-field + .form-field {
   mask-image: var(--bs-check-icon-indeterminate);
 }
 
+.check-sm {
+  --bs-check-size: 1rem;
+  --bs-check-margin-block: 0.15625rem;
+}
+
 .check:focus-visible {
   outline: var(--bs-focus-ring);
   outline-offset: var(--bs-focus-ring-offset);
@@ -287,6 +298,11 @@ fieldset .form-field + .form-field {
 
 .radio:disabled:checked {
   opacity: var(--bs-radio-disabled-opacity);
+}
+
+.radio-sm {
+  --bs-radio-size: 1rem;
+  --bs-radio-margin-block: 0.15625rem;
 }
 
 .radio:focus-visible {

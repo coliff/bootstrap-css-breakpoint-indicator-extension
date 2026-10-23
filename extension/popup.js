@@ -3,6 +3,7 @@
   "use strict";
 
   const enabledInput = document.querySelector("#enabled");
+  const colorInput = document.querySelector("#color");
   const statusText = document.querySelector("#indicator-status");
   const versionInputs = document.querySelectorAll("input[name='version']");
 
@@ -66,9 +67,11 @@
     const stored = await chrome.storage.local.get({
       enabled: false,
       version: "5",
+      color: false,
     });
 
     enabledInput.checked = stored.enabled === true;
+    colorInput.checked = stored.color === true;
 
     const storedVersion = normalizeVersion(stored.version);
     const version = (await detectPageVersion()) ?? storedVersion;
@@ -104,6 +107,7 @@
     await chrome.storage.local.set({
       enabled: enabledInput.checked,
       version: selectedVersion(),
+      color: colorInput.checked,
     });
 
     try {
@@ -136,6 +140,10 @@
         saveSettings();
       });
     }
+
+    colorInput.addEventListener("change", () => {
+      saveSettings();
+    });
 
     if (!turnedOn && !versionChanged) {
       await applyCurrentTab();

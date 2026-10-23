@@ -1,0 +1,45 @@
+/* XS: Primary */
+html body::after {
+  background-color: #0a7cff !important;
+  color: #fff !important;
+}
+
+/* SM ≥576px: Accent */
+@media (width >=576px) {
+  html body::after {
+    background-color: #7b48ff !important;
+    color: #fff !important;
+  }
+}
+
+/* MD ≥768px: Success */
+@media (width >=768px) {
+  html body::after {
+    background-color: #00a854 !important;
+    color: #fff !important;
+  }
+}
+
+/* LG ≥1024px: Danger */
+@media (width >=1024px) {
+  html body::after {
+    background-color: #e5294a !important;
+    color: #fff !important;
+  }
+}
+
+/* XL ≥1280px: Warning */
+@media (width >=1280px) {
+  html body::after {
+    background-color: #ffc107 !important;
+    color: #111 !important;
+  }
+}
+
+/* 2XL ≥1536px: Info */
+@media (width >=1536px) {
+  html body::after {
+    background-color: #0dcaf0 !important;
+    color: #111 !important;
+  }
+}

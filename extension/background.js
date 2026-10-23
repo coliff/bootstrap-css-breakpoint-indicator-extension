@@ -5,7 +5,10 @@ importScripts("toolbar-icon.js");
   "use strict";
 
   const VERSIONS = ["4", "5", "6"];
-  const CSS_FILES = VERSIONS.map((version) => `bootstrap-${version}.css`);
+  const CSS_FILES = VERSIONS.flatMap((version) => [
+    `bootstrap-${version}.css`,
+    `bootstrap-${version}-color.css`,
+  ]);
   const BADGE_COLOR = "#7952b3";
   const pendingByTab = new Map();
 
@@ -13,8 +16,15 @@ importScripts("toolbar-icon.js");
     return VERSIONS.includes(version) ? version : "5";
   }
 
-  function cssFileForVersion(version) {
-    return `bootstrap-${normalizeVersion(version)}.css`;
+  function cssFilesForSettings(settings) {
+    const version = normalizeVersion(settings.version);
+    const files = [`bootstrap-${version}.css`];
+
+    if (settings.color) {
+      files.push(`bootstrap-${version}-color.css`);
+    }
+
+    return files;
   }
 
   function isWebPage(url) {
@@ -28,11 +38,13 @@ importScripts("toolbar-icon.js");
     const stored = await chrome.storage.local.get({
       enabled: false,
       version: "5",
+      color: false,
     });
 
     return {
       enabled: stored.enabled === true,
       version: normalizeVersion(stored.version),
+      color: stored.color === true,
     };
   }
 
@@ -91,7 +103,7 @@ importScripts("toolbar-icon.js");
     try {
       await chrome.scripting.insertCSS({
         target: { tabId, allFrames: false },
-        files: [cssFileForVersion(settings.version)],
+        files: cssFilesForSettings(settings),
         origin: "USER",
       });
     } catch {
