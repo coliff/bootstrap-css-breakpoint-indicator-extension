@@ -4,12 +4,17 @@ importScripts("toolbar-icon.js");
 (() => {
   "use strict";
 
-  const CSS_FILES = ["bootstrap-5.css", "bootstrap-6.css"];
+  const VERSIONS = ["4", "5", "6"];
+  const CSS_FILES = VERSIONS.map((version) => `bootstrap-${version}.css`);
   const BADGE_COLOR = "#7952b3";
   const pendingByTab = new Map();
 
+  function normalizeVersion(version) {
+    return VERSIONS.includes(version) ? version : "5";
+  }
+
   function cssFileForVersion(version) {
-    return version === "6" ? "bootstrap-6.css" : "bootstrap-5.css";
+    return `bootstrap-${normalizeVersion(version)}.css`;
   }
 
   function isWebPage(url) {
@@ -27,7 +32,7 @@ importScripts("toolbar-icon.js");
 
     return {
       enabled: stored.enabled === true,
-      version: stored.version === "6" ? "6" : "5",
+      version: normalizeVersion(stored.version),
     };
   }
 

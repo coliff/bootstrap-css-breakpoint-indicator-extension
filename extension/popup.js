@@ -6,9 +6,13 @@
   const statusText = document.querySelector("#indicator-status");
   const versionInputs = document.querySelectorAll("input[name='version']");
 
+  function normalizeVersion(version) {
+    return ["4", "5", "6"].includes(version) ? version : "5";
+  }
+
   function selectedVersion() {
     const selected = document.querySelector("input[name='version']:checked");
-    return selected?.value === "6" ? "6" : "5";
+    return normalizeVersion(selected?.value);
   }
 
   function renderStatus() {
@@ -22,7 +26,7 @@
   }
 
   function findBootstrapVersion() {
-    const pattern = /bootstrap(?:@|\/)v?([56])\./iu;
+    const pattern = /bootstrap(?:@|\/)v?([456])\./iu;
 
     for (const link of document.querySelectorAll("link[href]")) {
       const match = pattern.exec(link.href);
@@ -66,7 +70,7 @@
 
     enabledInput.checked = stored.enabled === true;
 
-    const storedVersion = stored.version === "6" ? "6" : "5";
+    const storedVersion = normalizeVersion(stored.version);
     const version = (await detectPageVersion()) ?? storedVersion;
     for (const input of versionInputs) {
       input.checked = input.value === version;
