@@ -12,24 +12,29 @@
       <h1>Breakpoint indicator</h1>
       <p id="indicator-status" class="hint">Off until you turn it on.</p>
       <div class="form-field">
-        <input id="enabled" class="check" type="checkbox" />
+        <input id="enabled" class="check check-sm" type="checkbox" />
         <label for="enabled">Show breakpoint</label>
       </div>
       <fieldset>
         <legend>Bootstrap version</legend>
         <div class="form-field">
-          <input id="bootstrap-4" class="radio" type="radio" name="version" value="4" />
+          <input id="bootstrap-4" class="radio radio-sm" type="radio" name="version" value="4" />
           <label for="bootstrap-4">Bootstrap 4</label>
         </div>
         <div class="form-field">
-          <input id="bootstrap-5" class="radio" type="radio" name="version" value="5" checked="checked" />
+          <input id="bootstrap-5" class="radio radio-sm" type="radio" name="version" value="5" checked="checked" />
           <label for="bootstrap-5">Bootstrap 5</label>
         </div>
         <div class="form-field">
-          <input id="bootstrap-6" class="radio" type="radio" name="version" value="6" />
+          <input id="bootstrap-6" class="radio radio-sm" type="radio" name="version" value="6" />
           <label for="bootstrap-6">Bootstrap 6</label>
         </div>
       </fieldset>
+      <hr />
+      <div class="form-field">
+        <input id="color" class="check check-sm" type="checkbox" />
+        <label for="color">Differentiate with color</label>
+      </div>
     </main>
     <script src="toolbar-icon.js"></script>
     <script src="popup.js"></script>
