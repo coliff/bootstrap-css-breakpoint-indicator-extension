@@ -2,35 +2,40 @@
 (() => {
   "use strict";
 
-  const TOOLBAR_ICONS = {
-    on: {
-      16: "icon16.png",
-      19: "icon19.png",
-      24: "icon24.png",
-      32: "icon32.png",
-      38: "icon38.png",
-      48: "icon48.png",
-      128: "icon128.png",
-    },
-    off: {
-      16: "icon16-gray.png",
-      19: "icon19-gray.png",
-      24: "icon24-gray.png",
-      32: "icon32-gray.png",
-      38: "icon38-gray.png",
-      48: "icon48-gray.png",
-      128: "icon128-gray.png",
-    },
-  };
+  const TOOLBAR_SIZES = [16, 19, 20, 24, 28, 32, 38, 40, 48, 64, 128];
+
+  async function iconPixels(file) {
+    const response = await fetch(chrome.runtime.getURL(file));
+    const blob = await response.blob();
+    const source = await createImageBitmap(blob);
+
+    try {
+      const imageData = {};
+
+      for (const size of TOOLBAR_SIZES) {
+        const canvas = new OffscreenCanvas(size, size);
+        const context = canvas.getContext("2d");
+        context.imageSmoothingEnabled = true;
+        if ("imageSmoothingQuality" in context) {
+          context.imageSmoothingQuality = "high";
+        }
+        context.drawImage(source, 0, 0, size, size);
+        imageData[size] = context.getImageData(0, 0, size, size);
+      }
+
+      return imageData;
+    } finally {
+      source.close();
+    }
+  }
 
   self.setToolbarIcon = async (enabled) => {
-    const files = enabled ? TOOLBAR_ICONS.on : TOOLBAR_ICONS.off;
     const file = enabled ? "icon128.png" : "icon128-gray.png";
 
     try {
-      await chrome.action.setIcon({ path: file });
+      await chrome.action.setIcon({ imageData: await iconPixels(file) });
     } catch {
-      await chrome.action.setIcon({ path: files });
+      await chrome.action.setIcon({ path: file });
     }
   };
 })();

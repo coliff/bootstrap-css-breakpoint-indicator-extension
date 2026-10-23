@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Bootstrap CSS Breakpoint Indicator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A CSS breakpoint indicator for Bootstrap",
   "homepage_url": "https://github.com/coliff/bootstrap-css-breakpoint-indicator",
   "author": "Christian Oliff",
