@@ -66,6 +66,14 @@
 
   async function init() {
     await loadSettings();
+
+    const turnedOn = !enabledInput.checked;
+
+    if (turnedOn) {
+      enabledInput.checked = true;
+      await saveSettings();
+    }
+
     document.body.classList.remove("is-pending");
 
     enabledInput.addEventListener("change", () => {
@@ -78,7 +86,9 @@
       });
     }
 
-    await applyCurrentTab();
+    if (!turnedOn) {
+      await applyCurrentTab();
+    }
   }
 
   init().catch(() => {

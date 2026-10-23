@@ -3,8 +3,8 @@
    https://github.com/twbs/bootstrap/blob/main/LICENSE */
 
 :root {
-  --bs-black: #000;
-  --bs-white: #fff;
+  --bs-black: #111;
+  --bs-white: #eee;
   --bs-blue-500: oklch(60% 0.24 240deg);
   --bs-gray-050: color-mix(in oklch, var(--bs-white) 90%, oklch(60% 0.02 245deg));
   --bs-gray-100: color-mix(in oklch, var(--bs-white) 80%, oklch(60% 0.02 245deg));
