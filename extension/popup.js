@@ -21,6 +21,43 @@
     statusText.textContent = "Off until you turn it on.";
   }
 
+  function findBootstrapVersion() {
+    const pattern = /bootstrap(?:@|\/)v?([56])\./iu;
+
+    for (const link of document.querySelectorAll("link[href]")) {
+      const match = pattern.exec(link.href);
+
+      if (match) {
+        return match[1];
+      }
+    }
+
+    return null;
+  }
+
+  async function detectPageVersion() {
+    try {
+      const [tab] = await chrome.tabs.query({
+        active: true,
+        currentWindow: true,
+      });
+
+      if (typeof tab?.id !== "number") {
+        return null;
+      }
+
+      const [result] = await chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        func: findBootstrapVersion,
+      });
+
+      return result?.result ?? null;
+    } catch {
+      // The browser blocks scripts on restricted pages.
+      return null;
+    }
+  }
+
   async function loadSettings() {
     const stored = await chrome.storage.local.get({
       enabled: false,
@@ -29,12 +66,15 @@
 
     enabledInput.checked = stored.enabled === true;
 
-    const version = stored.version === "6" ? "6" : "5";
+    const storedVersion = stored.version === "6" ? "6" : "5";
+    const version = (await detectPageVersion()) ?? storedVersion;
     for (const input of versionInputs) {
       input.checked = input.value === version;
     }
 
     renderStatus();
+
+    return version !== storedVersion;
   }
 
   async function applyCurrentTab() {
@@ -72,11 +112,11 @@
   }
 
   async function init() {
-    await loadSettings();
+    const versionChanged = await loadSettings();
 
     const turnedOn = !enabledInput.checked;
 
-    if (turnedOn) {
+    if (turnedOn || versionChanged) {
       enabledInput.checked = true;
       await saveSettings();
     }
@@ -93,7 +133,7 @@
       });
     }
 
-    if (!turnedOn) {
+    if (!turnedOn && !versionChanged) {
       await applyCurrentTab();
     }
   }
