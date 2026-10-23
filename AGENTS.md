@@ -4,7 +4,10 @@
 
 ## JavaScript
 
-## Pull Requests
+- Always format with Prettier.
+- Lint with ESLint 8.57.1.
+
+## Git / Pull Requests
 
 - Use meaningful branch names.
-- Squash commits to a single commit.
+- Always squash commits in a PR to a single commit.
