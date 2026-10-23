@@ -4,6 +4,7 @@ body::after {
   background-color: #000 !important;
   border-radius: 8px !important;
   bottom: 0.25rem !important;
+  box-sizing: border-box !important;
   color: #fff !important;
   content: "XS";
   font-family: system-ui, sans-serif !important;
