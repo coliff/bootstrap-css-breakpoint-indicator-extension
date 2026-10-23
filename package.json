@@ -23,6 +23,7 @@
   "author": "Christian Oliff (https://christianoliff.com)",
   "scripts": {
     "eslint": "npx eslint@8.57.1 \"**/*.js\"",
+    "optimize-png": "node scripts/optimize-png.js",
     "package": "node scripts/package-extension.js",
     "prettier": "npx prettier@3.9.10 --write \"**/*.{html,js,yml}\"",
     "serve": "npx http-server -o /tests/ -p 8080 -c-1",
