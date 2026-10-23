@@ -41,6 +41,7 @@
   --bs-control-disabled-opacity: 0.65;
   --bs-control-transition-duration: 0.15s;
   --bs-control-transition-timing: cubic-bezier(0.34, 1.56, 0.64, 1);
+
   color-scheme: light dark;
 }
 
@@ -98,18 +99,14 @@ hr {
   margin: 0.75rem 0 0;
 }
 
-main > .form-field {
-  margin-top: 0.75rem;
-}
-
-fieldset .form-field + .form-field {
-  margin-top: 0.5rem;
-}
-
 .form-field {
   position: relative;
   display: grid;
   gap: 0.5rem;
+}
+
+main > .form-field {
+  margin-top: 0.75rem;
 }
 
 .form-field > label {
@@ -123,13 +120,8 @@ fieldset .form-field + .form-field {
   align-items: start;
 }
 
-.form-field:has(> .check, > .radio) > .check,
-.form-field:has(> .check, > .radio) > .radio {
-  grid-column: 1;
-}
-
-.form-field:has(> .check, > .radio) > :not(.check, .radio) {
-  grid-column: 2;
+fieldset .form-field + .form-field {
+  margin-top: 0.5rem;
 }
 
 .check {
@@ -148,6 +140,7 @@ fieldset .form-field + .form-field {
   --bs-check-active-border-color: var(--bs-control-active-border-color);
   --bs-check-disabled-bg: var(--bs-control-disabled-bg);
   --bs-check-disabled-opacity: var(--bs-control-disabled-opacity);
+
   position: relative;
   flex-shrink: 0;
   width: var(--bs-check-size);
@@ -207,13 +200,14 @@ fieldset .form-field + .form-field {
 
 .check-sm {
   --bs-check-size: 1rem;
-  --bs-check-margin-block: 0.15625rem;
+  --bs-check-margin-block: 0.1563rem;
 }
 
 .check:focus-visible {
+  --bs-focus-ring-offset: -1px;
+
   outline: var(--bs-focus-ring);
   outline-offset: var(--bs-focus-ring-offset);
-  --bs-focus-ring-offset: -1px;
 }
 
 .check:disabled {
@@ -238,6 +232,7 @@ fieldset .form-field + .form-field {
   --bs-radio-checked-border-color: var(--bs-control-checked-border-color);
   --bs-radio-disabled-bg: var(--bs-control-disabled-bg);
   --bs-radio-disabled-opacity: var(--bs-control-disabled-opacity);
+
   position: relative;
   flex-shrink: 0;
   width: var(--bs-radio-size);
@@ -287,6 +282,11 @@ fieldset .form-field + .form-field {
   transform: scale(1);
 }
 
+.radio:focus-visible {
+  outline: var(--bs-focus-ring);
+  outline-offset: var(--bs-focus-ring-offset);
+}
+
 .radio:disabled {
   --bs-radio-bg: var(--bs-radio-disabled-bg);
 }
@@ -302,10 +302,14 @@ fieldset .form-field + .form-field {
 
 .radio-sm {
   --bs-radio-size: 1rem;
-  --bs-radio-margin-block: 0.15625rem;
+  --bs-radio-margin-block: 0.1563rem;
 }
 
-.radio:focus-visible {
-  outline: var(--bs-focus-ring);
-  outline-offset: var(--bs-focus-ring-offset);
+.form-field:has(> .check, > .radio) > .check,
+.form-field:has(> .check, > .radio) > .radio {
+  grid-column: 1;
+}
+
+.form-field:has(> .check, > .radio) > :not(.check, .radio) {
+  grid-column: 2;
 }

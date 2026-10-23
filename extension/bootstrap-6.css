@@ -8,6 +8,7 @@ body::after {
   content: "XS";
   font-family: system-ui, sans-serif !important;
   font-size: 12px !important;
+  font-weight: 600 !important;
   left: 0.25rem !important;
   min-width: 28px !important;
   opacity: 0.9 !important;
