@@ -1,0 +1,21 @@
+{
+  "version": "0.2",
+  "words": [
+    "coliff",
+    "COMMITLINT",
+    "gulpfile",
+    "nonconstructor",
+    "Oliff",
+    "ossf",
+    "SARIF",
+    "specialchars",
+    "tagname",
+    "ZIZMOR"
+  ],
+  "language": "en,en-US",
+  "ignorePaths": [
+    ".cspell.json",
+    "**/node_modules/**"
+  ],
+  "useGitignore": true
+}

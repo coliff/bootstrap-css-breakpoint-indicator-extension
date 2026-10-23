@@ -1,0 +1,54 @@
+body::after {
+  aspect-ratio: 1 / 1 !important;
+  backdrop-filter: blur(99px) !important;
+  background-color: rgb(0 0 0 / 0.8) !important;
+  border-radius: 8px !important;
+  bottom: 0.25rem !important;
+  color: #fff !important;
+  content: "XS";
+  font-family: system-ui, sans-serif !important;
+  font-size: 12px !important;
+  left: 0.25rem !important;
+  min-width: 28px !important;
+  opacity: 0.9 !important;
+  padding: 4px !important;
+  pointer-events: none !important;
+  position: fixed !important;
+  text-align: center !important;
+  z-index: 9999 !important;
+}
+
+/* SM ≥576px */
+@media (width >=576px) {
+  body::after {
+    content: "SM";
+  }
+}
+
+/* MD ≥768px */
+@media (width >=768px) {
+  body::after {
+    content: "MD";
+  }
+}
+
+/* LG ≥992px */
+@media (width >=992px) {
+  body::after {
+    content: "LG";
+  }
+}
+
+/* XL ≥1200px */
+@media (width >=1200px) {
+  body::after {
+    content: "XL";
+  }
+}
+
+/* XXL ≥1400px */
+@media (width >=1400px) {
+  body::after {
+    content: "XXL";
+  }
+}

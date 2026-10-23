@@ -1,0 +1,16 @@
+# Folders to ignore
+node_modules/*
+
+# OS or Editor folders
+._*
+.cache
+.DS_Store
+.idea
+Thumbs.db
+
+# Files
+npm-debug.log
+package-lock.json
+
+# Packaged extension
+dist/

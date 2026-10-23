@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Bootstrap CSS Breakpoint Indicator",
+  "version": "1.0.0",
+  "description": "A CSS breakpoint indicator for Bootstrap",
+  "homepage_url": "https://github.com/coliff/bootstrap-css-breakpoint-indicator",
+  "author": "Christian Oliff",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "default_title": "Bootstrap CSS Breakpoint Indicator",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["activeTab", "scripting", "storage"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

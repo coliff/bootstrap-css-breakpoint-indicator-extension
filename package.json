@@ -1,0 +1,36 @@
+{
+  "name": "bootstrap-css-breakpoint-indicator",
+  "version": "1.4.2",
+  "description": "A CSS breakpoint indicator for Bootstrap",
+  "keywords": [
+    "bootstrap",
+    "css",
+    "breakpoint"
+  ],
+  "homepage": "https://github.com/coliff/bootstrap-css-breakpoint-indicator",
+  "bugs": {
+    "url": "https://github.com/coliff/bootstrap-css-breakpoint-indicator/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coliff/bootstrap-css-breakpoint-indicator.git"
+  },
+  "funding": {
+    "type": "PayPal",
+    "url": "https://paypal.me/coliff"
+  },
+  "license": "MIT",
+  "author": "Christian Oliff (https://christianoliff.com)",
+  "scripts": {
+    "eslint": "npx eslint@8.57.1 \"**/*.js\"",
+    "package": "node scripts/package-extension.js",
+    "prettier": "npx prettier@3.9.10 --write \"**/*.{html,js,json,yml}\"",
+    "serve": "npx http-server -o /tests/ -p 8080 -c-1",
+    "test": "npm-run-all css-lint js-lint html-lint"
+  },
+  "devDependencies": {
+  },
+  "volta": {
+    "node": "22.23.3"
+  }
+}
