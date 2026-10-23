@@ -62,6 +62,12 @@
       version: selectedVersion(),
     });
 
+    try {
+      await self.setToolbarIcon(enabledInput.checked);
+    } catch {
+      // The service worker also updates the toolbar icon.
+    }
+
     await applyCurrentTab();
   }
 

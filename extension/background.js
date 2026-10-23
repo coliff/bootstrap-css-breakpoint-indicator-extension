@@ -1,21 +1,11 @@
-/* global chrome:readonly */
+/* global chrome:readonly, importScripts:readonly */
+importScripts("toolbar-icon.js");
+
 (() => {
   "use strict";
 
   const CSS_FILES = ["bootstrap-5.css", "bootstrap-6.css"];
   const BADGE_COLOR = "#7952b3";
-  const ICONS = {
-    on: {
-      16: "icon16.png",
-      48: "icon48.png",
-      128: "icon128.png",
-    },
-    off: {
-      16: "icon16-gray.png",
-      48: "icon48-gray.png",
-      128: "icon128-gray.png",
-    },
-  };
   const pendingByTab = new Map();
 
   function cssFileForVersion(version) {
@@ -52,17 +42,19 @@
     }
   }
 
-  async function updateIcon(settings) {
-    await chrome.action.setIcon({
-      path: settings.enabled ? ICONS.on : ICONS.off,
-    });
+  async function updateAction(settings) {
+    try {
+      await updateBadge(settings);
+    } catch {
+      // Badge updates are optional if the action is unavailable.
+    }
+
+    await self.setToolbarIcon(settings.enabled);
   }
 
   function refreshAction() {
     readSettings()
-      .then((settings) =>
-        Promise.all([updateBadge(settings), updateIcon(settings)]),
-      )
+      .then((settings) => updateAction(settings))
       .catch(() => {
         // Toolbar updates are optional if the action is unavailable.
       });

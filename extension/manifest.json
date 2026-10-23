@@ -13,6 +13,10 @@
   "action": {
     "default_icon": {
       "16": "icon16-gray.png",
+      "19": "icon19-gray.png",
+      "24": "icon24-gray.png",
+      "32": "icon32-gray.png",
+      "38": "icon38-gray.png",
       "48": "icon48-gray.png",
       "128": "icon128-gray.png"
     },
