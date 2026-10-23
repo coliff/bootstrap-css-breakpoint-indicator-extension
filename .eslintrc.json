@@ -14,9 +14,6 @@
       "files": ["extension/*.js"],
       "env": {
         "browser": true
-      },
-      "globals": {
-        "chrome": "readonly"
       }
     },
     {
