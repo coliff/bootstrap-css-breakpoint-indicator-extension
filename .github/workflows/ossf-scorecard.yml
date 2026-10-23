@@ -13,7 +13,7 @@ jobs:
   analysis:
     name: Scorecards analysis
     runs-on: ubuntu-latest
-    if: github.repository == 'coliff/bootstrap-show-password-toggle'
+    if: github.repository == 'coliff/bootstrap-css-breakpoint-indicator-extension'
     permissions:
       security-events: write
       id-token: write
