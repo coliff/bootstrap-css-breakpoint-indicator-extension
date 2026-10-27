@@ -11,7 +11,7 @@
   "ignorePatterns": ["*.min.js", "*.html", "*.json", "node_modules/"],
   "overrides": [
     {
-      "files": ["extension/*.js"],
+      "files": ["extension/*.js", "tests/*.js"],
       "env": {
         "browser": true
       }
