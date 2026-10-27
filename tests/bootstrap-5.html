@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Test page for the Bootstrap CSS Breakpoint Indicator extension using Bootstrap 5." />
+    <title>Bootstrap 5 test page · Bootstrap CSS Breakpoint Indicator</title>
+    <link rel="canonical" href="https://coliff.github.io/bootstrap-css-breakpoint-indicator-extension/tests/bootstrap-5.html" />
+    <link rel="author" href="https://christianoliff.com" />
+    <link rel="license" href="https://github.com/coliff/bootstrap-css-breakpoint-indicator-extension/blob/main/LICENSE" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../extension/bootstrap-5.css" />
+    <script src="test.js" defer></script>
+  </head>
+  <body>
+    <main class="container py-4">
+      <h1>Bootstrap 5 test page</h1>
+      <p class="lead">Resize the window. The indicator in the bottom-left corner uses the extension's <strong>Bootstrap 5</strong> CSS and should always match the breakpoint Bootstrap reports below.</p>
+
+      <p class="fs-4">
+        Bootstrap reports:
+        <span class="badge text-bg-primary d-sm-none">XS</span>
+        <span class="badge text-bg-primary d-none d-sm-inline d-md-none">SM</span>
+        <span class="badge text-bg-primary d-none d-md-inline d-lg-none">MD</span>
+        <span class="badge text-bg-primary d-none d-lg-inline d-xl-none">LG</span>
+        <span class="badge text-bg-primary d-none d-xl-inline d-xxl-none">XL</span>
+        <span class="badge text-bg-primary d-none d-xxl-inline">XXL</span>
+      </p>
+      <p>Viewport width: <output id="viewport-width">unknown</output></p>
+
+      <h2 class="mt-5">Breakpoints</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Breakpoint</th>
+            <th scope="col">Class infix</th>
+            <th scope="col">Viewport width</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>XS</td>
+            <td><em>None</em></td>
+            <td>&lt;576px</td>
+          </tr>
+          <tr>
+            <td>SM</td>
+            <td><code>sm</code></td>
+            <td>&ge;576px</td>
+          </tr>
+          <tr>
+            <td>MD</td>
+            <td><code>md</code></td>
+            <td>&ge;768px</td>
+          </tr>
+          <tr>
+            <td>LG</td>
+            <td><code>lg</code></td>
+            <td>&ge;992px</td>
+          </tr>
+          <tr>
+            <td>XL</td>
+            <td><code>xl</code></td>
+            <td>&ge;1200px</td>
+          </tr>
+          <tr>
+            <td>XXL</td>
+            <td><code>xxl</code></td>
+            <td>&ge;1400px</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 class="mt-5">Responsive grid</h2>
+      <p>Columns use <code>col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2</code>, so the number of columns per row changes at each breakpoint.</p>
+      <div class="row g-3">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"><div class="p-3 border rounded bg-body-tertiary">1</div></div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"><div class="p-3 border rounded bg-body-tertiary">2</div></div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"><div class="p-3 border rounded bg-body-tertiary">3</div></div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"><div class="p-3 border rounded bg-body-tertiary">4</div></div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"><div class="p-3 border rounded bg-body-tertiary">5</div></div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"><div class="p-3 border rounded bg-body-tertiary">6</div></div>
+      </div>
+
+      <nav class="mt-5" aria-label="Test pages"><a href="index.html">All test pages</a> · <a href="bootstrap-4.html">Bootstrap 4</a> · <a href="bootstrap-6.html">Bootstrap 6</a></nav>
+    </main>
+  </body>
+</html>
