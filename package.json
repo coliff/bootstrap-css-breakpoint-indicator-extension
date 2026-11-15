@@ -22,7 +22,7 @@
   "license": "MIT",
   "author": "Christian Oliff (https://christianoliff.com)",
   "scripts": {
-    "eslint": "npx eslint@8.57.1 \"**/*.js\"",
+    "eslint": "eslint \"**/*.js\"",
     "optimize-png": "node scripts/optimize-png.js",
     "package": "node scripts/package-extension.js",
     "prettier": "npx prettier@3.10.1 --write \"**/*.{css,html,js,yml}\"",
@@ -30,6 +30,7 @@
     "test": "npm run eslint"
   },
   "devDependencies": {
+    "eslint": "8.57.1"
   },
   "engines": {
     "node": ">=24.22.3"

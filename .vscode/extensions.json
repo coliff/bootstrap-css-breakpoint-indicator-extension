@@ -1,6 +1,12 @@
 {
   "recommendations": [
     "dbaeumer.vscode-eslint",
-    "EditorConfig.EditorConfig"
+    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode"
+  ],
+  "unwantedRecommendations": [
+    "GitHub.vscode-github-actions",
+    "ms-edgedevtools.vscode-edge-devtools",
+    "ms-vscode.vscode-chat-customizations-evaluations"
   ]
 }
